@@ -13,15 +13,23 @@
   <div class="form-row">
     
     <div class="form-group col-md-6">
-        <div class="col-auto">
-          <label class="mr-sm-2" for="hospitaltype">&nbsp;Name of Company</label>
-          <select class="custom-select mr-sm-2" id="inputhospitaltype" name="inputhospitaltype">
-            <option selected disabled>Choose...</option>
-            <option value="Government">Government</option>
-            <option value="Private">Private</option>
-          </select>
-        </div>
+      <div class="col-auto">
+        <label class="mr-sm-2" for="hospitaltype">&nbsp;Name of Company</label>
+        <select class="custom-select mr-sm-2" id="inputhospitaltype" name="inputhospitaltype">
+          <option>Choose...</option>
+        </select>
+        <script>
+          var myArray = new Array('AAPL', 'MSFT', 'GOOG', 'GOOGL', 'ADSK', 'AMZN', 'FB', 'TSLA', 'TSM', 'NVDA', 'V', 'JPM', 'JNJ', 'BABA', 'WMT', 'UNH', 'BAC', 'MA', 'PG', 'HD', 'ASML', 'PYPL', 'DIS', 'ADBE', 'CMCSA', 'BBL', 'BHP', 'BMY', 'C', 'CHTR', 'CVX', 'HDB', 'HON', 'INTU', 'LIN', 'MCD', 'MDT', 'MRNA', 'MS', 'NEE', 'PM', 'QCOM', 'RY', 'SAP', 'SE', 'SHOP', 'TMUS', 'TXN', 'UPS', 'NKE', 'PFE', 'CRM', 'LLY', 'CSCO', 'ORCL', 'NFLX', 'TM', 'KO', 'NVO', 'XOM', 'DHR', 'VZ', 'ABT', 'INTC', 'TMO', 'PEP', 'ABBV', 'ACN', 'NVS', 'WFC', 'COST', 'AVGO', 'T', 'MRK', 'UL', 'UNP', 'LOW', 'BLK', 'SCHW', 'GS', 'SBUX', 'AXP', 'AMD', 'SONY', 'SNY', 'BA', 'RTX', 'AMT', 'AMGN', 'IBM', 'ISRG', 'TD', 'NOW', 'SQ', 'TGT', 'PDD', 'RIO', 'EL', 'AMAT', 'BUD', 'JD', 'SNAP');
+          var dropdown = document.getElementById("inputhospitaltype");
+
+          // Loop through the array
+          for (var i = 0; i < myArray.length; ++i) {
+              // Append the element to the end of Array list
+              dropdown[dropdown.length] = new Option(myArray[i], myArray[i]);
+          }
+        </script>
       </div>
+    </div>
 
       <div class="form-group col-md-6">
         <div class="col-auto">
