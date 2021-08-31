@@ -1,0 +1,22 @@
+{
+  "name": "svnit-team14",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Himified/SVNIT-Team14.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Himified/SVNIT-Team14/issues"
+  },
+  "homepage": "https://github.com/Himified/SVNIT-Team14#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
