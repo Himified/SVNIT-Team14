@@ -1,8 +1,8 @@
 <%- include('partials/header'); -%>
 
 <br><br><br><br>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 
@@ -14,13 +14,13 @@
     
     <div class="form-group col-md-6">
       <div class="col-auto">
-        <label class="mr-sm-2" for="hospitaltype">&nbsp;Name of Company</label>
-        <select class="custom-select mr-sm-2" id="inputhospitaltype" name="inputhospitaltype">
+        <label class="mr-sm-2" for="companyName">&nbsp;Name of Company</label>
+        <select class="custom-select mr-sm-2" id="companyName" name="companyName">
           <option>Choose...</option>
         </select>
         <script>
           var myArray = new Array('AAPL', 'MSFT', 'GOOG', 'GOOGL', 'ADSK', 'AMZN', 'FB', 'TSLA', 'TSM', 'NVDA', 'V', 'JPM', 'JNJ', 'BABA', 'WMT', 'UNH', 'BAC', 'MA', 'PG', 'HD', 'ASML', 'PYPL', 'DIS', 'ADBE', 'CMCSA', 'BBL', 'BHP', 'BMY', 'C', 'CHTR', 'CVX', 'HDB', 'HON', 'INTU', 'LIN', 'MCD', 'MDT', 'MRNA', 'MS', 'NEE', 'PM', 'QCOM', 'RY', 'SAP', 'SE', 'SHOP', 'TMUS', 'TXN', 'UPS', 'NKE', 'PFE', 'CRM', 'LLY', 'CSCO', 'ORCL', 'NFLX', 'TM', 'KO', 'NVO', 'XOM', 'DHR', 'VZ', 'ABT', 'INTC', 'TMO', 'PEP', 'ABBV', 'ACN', 'NVS', 'WFC', 'COST', 'AVGO', 'T', 'MRK', 'UL', 'UNP', 'LOW', 'BLK', 'SCHW', 'GS', 'SBUX', 'AXP', 'AMD', 'SONY', 'SNY', 'BA', 'RTX', 'AMT', 'AMGN', 'IBM', 'ISRG', 'TD', 'NOW', 'SQ', 'TGT', 'PDD', 'RIO', 'EL', 'AMAT', 'BUD', 'JD', 'SNAP');
-          var dropdown = document.getElementById("inputhospitaltype");
+          var dropdown = document.getElementById("companyName");
 
           // Loop through the array
           for (var i = 0; i < myArray.length; ++i) {
@@ -33,8 +33,8 @@
 
       <div class="form-group col-md-6">
         <div class="col-auto">
-          <label class="mr-sm-2" for="hospitaltype">&nbsp;Type of Analysis</label>
-          <select class="custom-select mr-sm-2" id="inputhospitaltype" name="inputhospitaltype">
+          <label class="mr-sm-2" for="graphType">&nbsp;Type of Analysis</label>
+          <select class="custom-select mr-sm-2" id="graphType" name="graphType">
             <option selected disabled>Choose...</option>
             <option value="OHLC">OHLC</option>
             <option value="Candlestick charts">Candlestick charts</option>
@@ -49,12 +49,12 @@
     
   </div>
   <div class="form-group col-md-6">
-    <label for="inputDOB">&nbsp;From</label>
-    <input type="date" class="form-control" id="inputDOB" name="inputDOB" placeholder="DOB" required>
+    <label for="fromDate">&nbsp;From</label>
+    <input type="date" class="form-control" id="fromDate" name="fromDate" placeholder="DOB" required>
   </div>
   <div class="form-group col-md-6">
-    <label for="inputDOB">&nbsp;To</label>
-    <input type="date" class="form-control" id="inputDOB" name="inputDOB" placeholder="DOB" required>
+    <label for="toDate">&nbsp;To</label>
+    <input type="date" class="form-control" id="toDate" name="toDate" placeholder="DOB" required>
   </div>
   
 
@@ -63,7 +63,7 @@
  
   <div class="row d-flex justify-content-between">
   	<div class="col-md-8">
-  		<button type="submit" class="btn btn-primary" style="width: 250px" onclick="myFunction()">Result</button>
+  		<button type="submit" class="btn btn-primary" style="width: 250px" onclick="getData()">Result</button>
   	</div>
   	<div class="col-md-4">
   		<br>
@@ -77,8 +77,20 @@
   function myFunction() {
     alert("Inventory registration is successful.");
   }
-  </script>
-  <script type="text/javascript" src="js/end.js"></script>
-  <br><br>
+
+  function getData() {
+    let companyDropDown, graphDropDown, fromDate, toDate;
+    companyDropDown = document.getElementById("companyName");
+    let companyName = companyDropDown.options[companyDropDown.selectedIndex].text;
+    graphDropDown = document.getElementById("graphType");
+    let graphType = graphDropDown.options[graphDropDown.selectedIndex].text;
+    fromDate = document.getElementById("fromDate");
+    toDate = document.getElementById("toDate");
+    console.log(companyName, graphType, fromDate, toDate);
+}
+</script>
+<!-- <script type="text/javascript" src="../public/end.js"></script>
+<script type="text/javascript" src="../public/script.js"></script> -->
+<br><br>
 
 <%- include('partials/footer'); -%>
