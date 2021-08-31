@@ -15,7 +15,7 @@
     <div class="form-group col-md-6">
       <div class="col-auto">
         <label class="mr-sm-2" for="companyName">&nbsp;Name of Company</label>
-        <select class="custom-select mr-sm-2" id="companyName" name="companyName">
+        <select class="custom-select mr-sm-2" id="companyName" name="companyName" onchange="getData()">
           <option>Choose...</option>
         </select>
         <script>
@@ -34,7 +34,7 @@
       <div class="form-group col-md-6">
         <div class="col-auto">
           <label class="mr-sm-2" for="graphType">&nbsp;Type of Analysis</label>
-          <select class="custom-select mr-sm-2" id="graphType" name="graphType">
+          <select class="custom-select mr-sm-2" id="graphType" name="graphType" onchange="getData()">
             <option selected disabled>Choose...</option>
             <option value="OHLC">OHLC</option>
             <option value="Candlestick charts">Candlestick charts</option>
@@ -50,11 +50,11 @@
   </div>
   <div class="form-group col-md-6">
     <label for="fromDate">&nbsp;From</label>
-    <input type="date" class="form-control" id="fromDate" name="fromDate" placeholder="DOB" required>
+    <input type="date" class="form-control" id="fromDate" name="fromDate" placeholder="Intial" required>
   </div>
   <div class="form-group col-md-6">
     <label for="toDate">&nbsp;To</label>
-    <input type="date" class="form-control" id="toDate" name="toDate" placeholder="DOB" required>
+    <input type="date" class="form-control" id="toDate" name="toDate" placeholder="Final" required>
   </div>
   
 
