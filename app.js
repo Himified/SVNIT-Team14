@@ -10,10 +10,11 @@ app.use(express.static("public"));
 app.get('/', (req, res) => {
     res.render("home");
 })
-
 app.post('/Result', (req, res) => {
     res.render("graph");
 })
+
+
 
 
 app.listen(port, () => {
