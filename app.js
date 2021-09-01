@@ -16,7 +16,6 @@ app.get('/', (req, res) => {
 
 })
 
-
 app.post('/Result', (req, res) => {  
     res.render("graph");
 

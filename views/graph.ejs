@@ -100,6 +100,49 @@ var charts = new CanvasJS.Chart("chartContainers", {
 });
 charts.render();
 
+var dps = [];
+var chartz = new CanvasJS.Chart("chartContainerz", {
+	animationEnabled: true,
+	exportEnabled: true,
+	title: {
+		text: "Apple Stock Price"
+	},
+	axisX: {
+		valueFormatString: "DD MMM"
+	},
+	axisY: {
+		title: "Price",
+		prefix: "$"
+	},
+	data: [{
+		type: "ohlc",
+		name: "Apple Stock Price",
+		color: "#DD7E86",
+		showInLegend: true,
+		yValueFormatString: "$##0.00",
+		xValueType: "dateTime",
+		dataPoints: dps
+	}]
+});
+
+$.getJSON("https://canvasjs.com/data/gallery/javascript/intel-stock-price.json", parseData);
+$.getJSON("data.json", parseData);
+
+function parseData(result) {
+    console.log(result);
+	for (var i = 0; i < result.length; i++) {
+        if(result[i].symbol == "AAPL") {
+            dps.push({
+			x: result[i].updated,
+			y: [result[i].open, result[i].high, result[i].low, result[i].close]
+		});
+        }
+		
+	}
+	chartz.render();
+}
+
+
 }
     </script>
     </head>
@@ -114,5 +157,9 @@ charts.render();
 <br><br><br><br><br><br><br><br><br><br><br><br>
     <div id="chartContainers" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
     <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <br><br><br><br><br><br><br>
+    <div id="chartContainerz" style="height: 370px; max-width: 920px; margin: 0px auto;"></div>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
     </body>
 
